@@ -32,8 +32,10 @@ public class EnemyManager : MonoBehaviour
  //Pass navigational path
  public Waypoints[] navPoints;
  public Wave enemyWave;
- //public GameObject easyEnemy;
- //public GameObject hardEnemy;
+    //public GameObject easyEnemy;
+    //public GameObject hardEnemy;
+    // EnemyCounter
+    public int enemyCounter;
 
 
  void Start()
@@ -41,7 +43,12 @@ public class EnemyManager : MonoBehaviour
    SpawnWave();
   }
 
- private void SpawnWave()
+    private void Update()
+    {
+        //if ()
+    }
+
+    private void SpawnWave()
  {
 
    foreach (Group group in enemyWave.enemyGroups)
@@ -56,6 +63,9 @@ public class EnemyManager : MonoBehaviour
    int i = 0;
    while (enemyGroup.amountOfEnemies > 0)
    {
+     //enemyCounter++;
+            //Debug.Log(enemyCounter);
+            //Debug.Log(enemyGroup.amountOfEnemies);
      GameObject spawnedEnemy = Instantiate(enemyGroup.enemyType);
      spawnedEnemy.GetComponent<Enemy>().StartEnemy(navPoints);
      spawnedEnemy.name = $"{enemyGroup.enemyType.ToString()} {i}";

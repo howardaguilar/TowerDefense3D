@@ -127,6 +127,10 @@ PrefabInstance:
       propertyPath: cashPoints
       value: 300
       objectReference: {fileID: 0}
+    - target: {fileID: 2557541996890405554, guid: a7612fcea61f0ca4a91db8050e5b223d, type: 3}
+      propertyPath: currentHealth
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 5255237810463935651, guid: a7612fcea61f0ca4a91db8050e5b223d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

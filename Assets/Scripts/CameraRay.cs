@@ -32,7 +32,11 @@ public class CameraRay : MonoBehaviour
         if (hit.transform.tag == "Enemy")
         {
           hit.transform.GetComponent<Enemy>().TakeDamage(20);
-        }
+        } 
+        /*else if (hit.transform.tag == "HardEnemy")
+        {
+            hit.transform.GetComponent<Enemy>().TakeDamage(10);
+        }*/
 
         if (hit.transform.tag == "TowerPosition")
         {

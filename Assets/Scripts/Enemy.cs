@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -22,7 +23,15 @@ public class Enemy : MonoBehaviour
   // Start is called before the first frame update
   public void StartEnemy(Waypoints[] navigationalPath)
   {
-    navPoints = navigationalPath;
+        /*
+        things = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
+        foreach (Group group in things.enemyWave.enemyGroups)
+        {
+            enemyFullCounter += group.amountOfEnemies;
+        }*/
+        //Debug.Log(enemyFullCounter);
+
+        navPoints = navigationalPath;
     purse = GameObject.FindGameObjectWithTag("Purse").GetComponent<Purse>();
     healthBar = GetComponentInChildren<HealthBar>();
     startingHealth = currentHealth;
@@ -63,16 +72,22 @@ public class Enemy : MonoBehaviour
       move = false;
     }
   }
-
+    // Insert enemyDecrementer here
   public void TakeDamage(int amountDamage)
   {
     currentHealth -= amountDamage;
     if (currentHealth <= 0)
     {
+            purse.enemyDecrementer();
       purse.AddCash(cashPoints); //add cash to purse
       DeathEvent.Invoke();    ///notify towers that I am killed
       Destroy(this.gameObject); //Get rid of object
-       
+            //enemyFullCounter--;
+            //Debug.Log(enemyFullCounter);
+        //if (enemyFullCounter <= 0)
+           // {
+            //    SceneManager.LoadScene("Restart");
+           // }
     }
     else
     {

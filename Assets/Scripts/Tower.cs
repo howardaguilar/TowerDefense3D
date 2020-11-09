@@ -35,7 +35,7 @@ public class Tower : MonoBehaviour
   {
     Enemy newEnemy = collider.GetComponent<Enemy>();
     currentEnemies.Add(newEnemy);
- 
+    
     currentEnemies[0].DeathEvent.AddListener(delegate { BookKeeping(newEnemy);});
         
     EvaluateTarget(newEnemy);
