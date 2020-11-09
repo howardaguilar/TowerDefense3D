@@ -28,7 +28,9 @@ public class Tower : MonoBehaviour
     {
       lineRenderer.SetPosition(0, turret.transform.position);
       lineRenderer.SetPosition(1, currentTarget.transform.position);
-    }
+      // Have tower destroy
+      //InvokeRepeating("DestroyEnemy", 1.0f, 1.0f);
+        }
   }
 
   void OnTriggerEnter(Collider collider)
@@ -77,4 +79,9 @@ public class Tower : MonoBehaviour
       lineRenderer.enabled = true;
     }
   }
+
+    private void DestroyEnemy()
+    {
+        //currentTarget.GetComponent<Enemy>().TakeDamage(20);
+    }
 }
